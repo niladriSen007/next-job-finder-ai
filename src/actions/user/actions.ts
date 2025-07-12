@@ -3,6 +3,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../../services/prisma/prisma"
 import { revalidatePath } from "next/cache";
+import { generateAiIndustryDetails } from "../industry/actions";
 
 export async function UPDATE_USER_DATA(data: {
   industry: string,
@@ -31,17 +32,13 @@ export async function UPDATE_USER_DATA(data: {
       })
 
       if (!industryDetails) {
-        industryDetails = await transaction.industryDetails.create({
+        const insights = await generateAiIndustryDetails(data?.industry as string)
+        industryDetails = await prisma.industryDetails.create({
           data: {
-            industry: data?.industry,
-            salaryRanges: [],
-            growthRate: 0,
-            demandLevel: "",
-            topSkills: [],
-            marketOutlook: "",
-            keyTrends: [],
-            recommendedSkills: [],
-            nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+            industry: data?.industry as string,
+            nextUpdate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+            ...insights,
+            salaryRanges: JSON.parse(JSON.stringify(insights?.salaryRanges)),
           }
         })
       }
