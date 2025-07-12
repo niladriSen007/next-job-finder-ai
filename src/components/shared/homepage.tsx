@@ -4,7 +4,7 @@ import { Button } from "../ui/button"
 const Home = () => {
 
   return (
-    <section className="w-full h-screen pt-64 pb-10 bg-gradient-to-br from-black to-blue-900">
+    <section className="w-full h-screen pt-64 pb-10 bg-gradient-to-b from-black to-blue-900">
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
           <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600  tracking-tighter text-transparent bg-clip-text pb-2 pr-2 animate-gradient">
