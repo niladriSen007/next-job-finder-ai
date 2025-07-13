@@ -30,12 +30,12 @@ export const Header = async () => {
               <Link href="/dashboard">
                 <Button
                   variant="outline"
-                  className="hidden md:inline-flex items-center gap-2"
+                  className="hidden md:inline-flex items-center gap-2 cursor-pointer"
                 >
                   <LayoutDashboard className="h-4 w-4" />
                   Industry Insights
                 </Button>
-                <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                <Button variant="ghost" className="md:hidden w-10 h-10 p-0 cursor-pointer">
                   <LayoutDashboard className="h-4 w-4" />
                 </Button>
               </Link>
@@ -43,7 +43,7 @@ export const Header = async () => {
               {/* Growth Tools Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button className="flex items-center gap-2">
+                  <Button className="flex items-center gap-2 cursor-pointer">
                     <StarsIcon className="h-4 w-4" />
                     <span className="hidden md:block">Growth Tools</span>
                     <ChevronDown className="h-4 w-4" />

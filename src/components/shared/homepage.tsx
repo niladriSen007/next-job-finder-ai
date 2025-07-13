@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { Button } from "../ui/button"
+import { GET_USER_ONBOARDING_STATUS } from "@/actions/user/actions";
 
-const Home = () => {
+const Home = async () => {
+
+  const { isOnboarded } = await GET_USER_ONBOARDING_STATUS();
 
   return (
     <section className="w-full px-16 h-screen pt-64 pb-10 bg-gradient-to-b from-black to-blue-900">
@@ -18,8 +21,8 @@ const Home = () => {
           </p>
         </div>
         <div className="flex justify-center space-x-4">
-          <Link href="/dashboard">
-            <Button size="lg" className="px-8">
+          <Link href={isOnboarded ? "/dashboard" : "/onboarding"}>
+            <Button size="lg" className="px-8 cursor-pointer">
               Get Started
             </Button>
           </Link>

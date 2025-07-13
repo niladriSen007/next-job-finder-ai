@@ -6,7 +6,7 @@ export interface Industry {
 export const industries: Industry[] = [
   {
     id: "tech",
-    name: "Technology",
+    name: "Technology & Software Development",
     subIndustries: [
       "Software Development",
       "IT Services",
