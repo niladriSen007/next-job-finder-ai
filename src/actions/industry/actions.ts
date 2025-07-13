@@ -63,8 +63,6 @@ export async function getIndustryDetails() {
         salaryRanges: JSON.parse(JSON.stringify(insights?.salaryRanges)),
       }
     })
-
-    console.log(newIndustryDetails,"detailssss")
   
     const industryDetails = newIndustryDetails as {
       id: string
