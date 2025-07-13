@@ -21,10 +21,8 @@ const DashboardView = ({ industryDetails }: { industryDetails: IndustryDetailsTy
     keyTrends,
     lastUpdated
   } = industryDetails;
+  
   type MarketOutlookKey = "positive" | "neutral" | "negative" | "default";
-
-
-
 
   const marketOutlookResponse: Record<MarketOutlookKey, {
     icon: React.ComponentType<{ className?: string }>,
