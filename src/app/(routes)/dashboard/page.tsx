@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import DashboardView from "./_components/dashboard-view";
 import { IndustryDetailsType } from "./_types";
+import DashboardSkeleton from "./_components/skeletons/dashboard-skeleton";
 
 const DashboardPage = async () => {
 
@@ -15,7 +16,7 @@ const DashboardPage = async () => {
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<DashboardSkeleton />}>
       <div>
         <DashboardView industryDetails={industryDetails} />
       </div>
